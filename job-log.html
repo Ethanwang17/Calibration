@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Search Equipment - Calibration</title>
+		<!-- Bootstrap CSS -->
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+		/>
+		<!-- Custom CSS -->
+		<link rel="stylesheet" href="css/style.css" />
+		<!-- Add Bootstrap Icons -->
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+		/>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">Calibration</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarNav"
+					aria-controls="navbarNav"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a class="nav-link" href="index.html">Requests</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a
+								class="nav-link dropdown-toggle active"
+								href="#"
+								role="button"
+								data-bs-toggle="dropdown"
+								aria-expanded="false"
+							>
+								Equipment
+							</a>
+							<ul class="dropdown-menu">
+								<li>
+									<a
+										class="dropdown-item active"
+										href="search-equipment.html"
+										>Search Equipment</a
+									>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#"
+										>Search Job Log</a
+									>
+								</li>
+							</ul>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">NOD</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Reports</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Help</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<div class="container-fluid mt-4">
+			<div class="row">
+				<!-- Left Side - Accordion -->
+				<div class="col-md-3">
+					<div class="accordion" id="searchAccordion">
+						<!-- Quick Search Section -->
+						<div class="accordion-item">
+							<h2 class="accordion-header">
+								<button
+									class="accordion-button"
+									type="button"
+									data-bs-toggle="collapse"
+									data-bs-target="#quickSearch"
+									aria-expanded="true"
+									aria-controls="quickSearch"
+								>
+									Quick Search
+								</button>
+							</h2>
+							<div
+								id="quickSearch"
+								class="accordion-collapse collapse show"
+							>
+								<div class="accordion-body">
+									<form id="searchForm">
+										<div class="mb-3">
+											<div class="d-grid gap-2">
+												<button
+													type="button"
+													class="btn btn-outline-secondary"
+												>
+													Checked Out
+												</button>
+												<button
+													type="button"
+													class="btn btn-outline-secondary"
+												>
+													Checked Out Long Term
+												</button>
+												<button
+													type="button"
+													class="btn btn-outline-secondary"
+												>
+													Checked Out TBC
+												</button>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Second Accordion -->
+					<div class="accordion mt-4" id="searchAccordion2">
+						<!-- Search Criteria Section -->
+						<div class="accordion-item">
+							<h2 class="accordion-header">
+								<button
+									class="accordion-button"
+									type="button"
+									data-bs-toggle="collapse"
+									data-bs-target="#searchCriteria"
+									aria-expanded="true"
+									aria-controls="searchCriteria"
+								>
+									Job Log Search
+								</button>
+							</h2>
+							<div
+								id="searchCriteria"
+								class="accordion-collapse collapse show"
+							>
+								<div class="accordion-body">
+									<form id="searchForm">
+										<div class="mb-3 row">
+											<label
+												class="col-sm-4 col-form-label"
+												>Building</label
+											>
+											<div class="col-sm-8 d-flex gap-4">
+												<div class="form-check">
+													<input
+														class="form-check-input"
+														type="radio"
+														name="buildingScope"
+														id="allBuildings"
+														checked
+													/>
+													<label
+														class="form-check-label"
+														for="allBuildings"
+														>All</label
+													>
+												</div>
+												<div class="form-check">
+													<input
+														class="form-check-input"
+														type="radio"
+														name="buildingScope"
+														id="myBuildings"
+													/>
+													<label
+														class="form-check-label"
+														for="myBuildings"
+														>My Buildings</label
+													>
+												</div>
+											</div>
+										</div>
+										<div class="mb-3 row">
+											<label
+												for="building"
+												class="col-sm-4 col-form-label"
+												>Building</label
+											>
+											<div class="col-sm-8">
+												<input
+													type="text"
+													class="form-control"
+													id="building"
+												/>
+											</div>
+										</div>
+										<div class="mb-3 row">
+											<label
+												for="outAfter"
+												class="col-sm-4 col-form-label"
+												>Out After</label
+											>
+											<div class="col-sm-8">
+												<input
+													type="date"
+													class="form-control"
+													id="outAfter"
+												/>
+											</div>
+										</div>
+										<div class="mb-3 row">
+											<label
+												for="outBefore"
+												class="col-sm-4 col-form-label"
+												>Out Before</label
+											>
+											<div class="col-sm-8">
+												<input
+													type="date"
+													class="form-control"
+													id="outBefore"
+												/>
+											</div>
+										</div>
+										<div class="mb-3 row">
+											<label
+												for="inAfter"
+												class="col-sm-4 col-form-label"
+												>In After</label
+											>
+											<div class="col-sm-8">
+												<input
+													type="date"
+													class="form-control"
+													id="inAfter"
+												/>
+											</div>
+										</div>
+										<div class="mb-3 row">
+											<label
+												for="inBefore"
+												class="col-sm-4 col-form-label"
+												>In Before</label
+											>
+											<div class="col-sm-8">
+												<input
+													type="date"
+													class="form-control"
+													id="inBefore"
+												/>
+											</div>
+										</div>
+										<div class="mb-3 row">
+											<label
+												for="standardId"
+												class="col-sm-4 col-form-label"
+												>Standard ID</label
+											>
+											<div class="col-sm-8">
+												<input
+													type="text"
+													class="form-control"
+													id="standardId"
+												/>
+											</div>
+										</div>
+										<div class="mb-3 row">
+											<label
+												for="activity"
+												class="col-sm-4 col-form-label"
+												>Activity</label
+											>
+											<div class="col-sm-8">
+												<input
+													type="text"
+													class="form-control"
+													id="activity"
+												/>
+											</div>
+										</div>
+										<div class="mb-3 row">
+											<label
+												for="user"
+												class="col-sm-4 col-form-label"
+												>User</label
+											>
+											<div class="col-sm-8">
+												<input
+													type="text"
+													class="form-control"
+													id="user"
+												/>
+											</div>
+										</div>
+										<div class="mb-3 row">
+											<label
+												for="facility"
+												class="col-sm-4 col-form-label"
+												>Facility</label
+											>
+											<div class="col-sm-8">
+												<input
+													type="text"
+													class="form-control"
+													id="facility"
+												/>
+											</div>
+										</div>
+										<div class="mb-3 row">
+											<div class="col-sm-4"></div>
+											<div class="col-sm-8">
+												<div class="form-check">
+													<input
+														class="form-check-input"
+														type="checkbox"
+														id="checkbox1"
+													/>
+													<label
+														class="form-check-label"
+														for="checkedOut"
+													>
+														Checked Out
+													</label>
+												</div>
+												<div class="form-check">
+													<input
+														class="form-check-input"
+														type="checkbox"
+														id="checkbox2"
+													/>
+													<label
+														class="form-check-label"
+														for="longTerm"
+													>
+														Long Term
+													</label>
+												</div>
+												<div class="form-check">
+													<input
+														class="form-check-input"
+														type="checkbox"
+														id="checkbox3"
+													/>
+													<label
+														class="form-check-label"
+														for="notUsed"
+													>
+														Not Used
+													</label>
+												</div>
+												<div class="form-check">
+													<input
+														class="form-check-input"
+														type="checkbox"
+														id="checkbox4"
+													/>
+													<label
+														class="form-check-label"
+														for="checkbox4"
+														>Canceled</label
+													>
+													<div
+														class="d-inline-flex align-items-center ms-3"
+													>
+														<div
+															class="form-check form-check-inline"
+														>
+															<input
+																class="form-check-input"
+																type="radio"
+																name="canceledOptions"
+																id="canceledYes"
+																value="yes"
+															/>
+															<label
+																class="form-check-label"
+																for="canceledYes"
+															>
+																Yes
+															</label>
+														</div>
+														<div
+															class="form-check form-check-inline"
+														>
+															<input
+																class="form-check-input"
+																type="radio"
+																name="canceledOptions"
+																id="canceledNo"
+																value="no"
+															/>
+															<label
+																class="form-check-label"
+																for="canceledNo"
+															>
+																No
+															</label>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-item">
+							<h2 class="accordion-header">
+								<button
+									class="accordion-button collapsed"
+									type="button"
+									data-bs-toggle="collapse"
+									data-bs-target="#equipment"
+									aria-expanded="false"
+									aria-controls="equipment"
+								>
+									Equipment
+								</button>
+							</h2>
+							<div
+								id="equipment"
+								class="accordion-collapse collapse"
+							>
+								<div class="accordion-body">
+									<div class="mb-3 row">
+										<label
+											for="status"
+											class="col-sm-4 col-form-label"
+											>Status</label
+										>
+										<div class="col-sm-8">
+											<select
+												class="form-select"
+												id="status"
+											>
+												<option value="active" selected>
+													Active
+												</option>
+												<option value="contaminated">
+													Contaminated
+												</option>
+												<option value="excessed">
+													Excessed
+												</option>
+												<option value="inactive">
+													Inactive
+												</option>
+												<option value="jcs">JCS</option>
+												<option value="lost">
+													Lost
+												</option>
+												<option value="suspended">
+													Suspended
+												</option>
+												<option value="tbd">TBD</option>
+											</select>
+										</div>
+									</div>
+									<div class="mb-3 row">
+										<label
+											for="type"
+											class="col-sm-4 col-form-label"
+											>Type</label
+										>
+										<div class="col-sm-8">
+											<select
+												class="form-select"
+												id="type"
+											>
+												<option value="" selected>
+													Select Type
+												</option>
+												<option value="mte">
+													M&TE
+												</option>
+												<option value="non-data">
+													NON-DATA
+												</option>
+												<option value="other-tools">
+													Other Tools
+												</option>
+												<option value="power-tools">
+													Power Tools
+												</option>
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Add buttons at the bottom of accordion -->
+					<div
+						class="d-flex justify-content-end gap-2 p-2 bg-dark-subtle"
+					>
+						<button type="button" class="btn btn-secondary">
+							Clear
+						</button>
+						<button type="button" class="btn btn-primary">
+							Search
+						</button>
+					</div>
+				</div>
+
+				<!-- Right Side - Table -->
+				<div class="col-md-9">
+					<!-- Add View Results As buttons as a floating element -->
+					<div class="d-flex justify-content-end mb-3">
+						<div class="d-flex align-items-center">
+							<span class="me-2">View Results as:</span>
+							<div class="btn-group">
+								<button
+									type="button"
+									class="btn btn-outline-secondary btn-sm"
+								>
+									Job Report
+								</button>
+								<button
+									type="button"
+									class="btn btn-outline-secondary btn-sm"
+								>
+									Job Out Report
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Search Results Header -->
+					<div
+						class="d-flex justify-content-between align-items-center bg-primary text-white p-2"
+					>
+						<h5 class="mb-0">Search Results</h5>
+						<span class="badge bg-light text-primary">5</span>
+					</div>
+
+					<div class="table-responsive">
+						<table class="table table-striped table-hover">
+							<thead>
+								<tr>
+									<th>Standard ID</th>
+									<th>Building</th>
+									<th>Cal Due</th>
+									<th>Out</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>011-79-09-001</td>
+									<td>2727E</td>
+									<td>12/21/2006</td>
+									<td></td>
+									<td class="text-end">
+										<button
+											class="btn btn-sm btn-link"
+											title="Expand"
+										>
+											<i class="bi bi-plus-lg"></i>
+										</button>
+										<button
+											class="btn btn-sm btn-link"
+											title="Details"
+										>
+											<i class="bi bi-arrow-right"></i>
+										</button>
+									</td>
+								</tr>
+								<!-- Add more rows as needed -->
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- jQuery -->
+		<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+		<!-- Bootstrap JS -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+		<!-- Custom JS -->
+		<script src="js/script.js"></script>
+	</body>
+</html>
